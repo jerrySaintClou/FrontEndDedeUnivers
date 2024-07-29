@@ -1,0 +1,83 @@
+.Gch2 {
+  width: 100%;
+}
+
+.carouselGch2 {
+  width: 100%;
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+}
+
+.carouselGch2 button {
+  width: 5%;
+  height: 7vh;
+  cursor: pointer;
+  background-color: #7fd1aacb;
+  border: 1px solid #7fd1aacb;
+  font-size: 1em;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.carouselGch2 button:hover {
+  background-color: #1d6442cb;
+  border-color: #1d6442cb;
+  color: white;
+}
+
+.cardsAllGch2 {
+  width: 87%;
+  /* border: 2px solid blue; */
+  overflow: hidden;
+}
+
+.ensembleDivGch2 {
+  width: 800%;
+}
+
+.divCardGch2 {
+  width: 12.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.cardGch2 {
+  width: 30%;
+  margin: 1%;
+}
+
+.imageCardGch2 {
+  width: 100%;
+}
+
+.imageCardGch2 img {
+  width: 100%;
+}
+
+.ensembleBouton {
+  display: flex;
+  /* border: 1px solid black; */
+  width: 35%;
+  margin: auto;
+}
+
+.ensembleBouton button {
+  width: 9%;
+  height: 6vh;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 3%;
+}
+
+.boutonStyleActiveGch2 {
+  background-color: #7fd1aacb;
+  border: 1px solid #7fd1aacb;
+}
+
+.boutonStyleNoActiveGch2 {
+  background-color: white;
+  border: 1px solid #7fd1aacb;
+}

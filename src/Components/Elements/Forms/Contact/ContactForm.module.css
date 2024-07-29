@@ -1,0 +1,10 @@
+.formContact {
+  /* border: 2px solid black; */
+  width: 40%;
+  margin: auto;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}

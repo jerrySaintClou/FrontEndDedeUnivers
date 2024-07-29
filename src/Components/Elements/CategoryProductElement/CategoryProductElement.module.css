@@ -1,0 +1,187 @@
+.trieCategorie
+{
+    /* border: 1px solid black; */
+    width: 30%;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.labelTrieCategorie
+{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+
+.selectTrieCategorie
+{
+    width: 60%;
+    height: 5vh;
+    font-size: 1.1em;
+    border: 2px solid black;
+    margin-left: 2%;
+}
+
+
+.contenuLaCategorie
+{
+    display: flex;
+}
+
+
+
+/* -----------------------------------------------Contenue Categorie Style-------------------------------------------- */
+
+
+
+.filtreCategorie
+{
+    /* border: 2px solid black; */
+    width: 15%;
+    background-color: #fff;
+    margin: 1%;
+    padding: 1%;
+}
+
+
+.filtreCategoriePStyle
+{
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-left: 2%;
+    text-decoration: none;
+    color: black;
+}
+
+.listeFiltre
+{
+    list-style: none;
+    color: rgb(72, 72, 72);
+    font-size: 1.1em;
+    margin-left: 1%;
+}
+
+.listeFiltre li
+{
+    margin-bottom: 8%;
+}
+
+
+.listeFiltre a
+{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}
+
+
+.listeFiltre a:hover
+{
+    text-decoration: underline;
+}
+
+
+
+
+/* -----------------------------------------------lesCardsCategorie style ----------------------------------------------- */
+
+
+.lesCardsCategorie
+{
+    /* border: 2px solid black; */
+    width: 82%;
+    margin-left: 2%;
+    margin-top: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+.cardCategorie
+{
+    /* border: 2px solid black; */
+    width: 20%;
+    /* height: 35vh; */
+   margin: 2%;
+}
+
+.imageCardCategorie
+{
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imageCardCategorie img
+{
+    width: 100%;
+}
+
+.infoCardCategorie
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoCardCategorie p
+{
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.nomProduitCardCategorie
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.pStyleCateg
+{
+    font-size: 1.1em;
+}
+
+.voirLeProduitStyleCateg
+{
+    text-decoration: none;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1ea0ba;
+    color: black;
+}
+
+.voirLeProduitStyleCateg:hover
+{
+    background-color: #076477;
+    color: white;
+}
+
+.ajouterAuPanierCateg
+{
+    width: 100%;
+}
+
+
+.ajouterAuPanierCateg button
+{
+    width: 100%;
+    height: 5vh;
+    cursor: pointer;
+    background-color: rgb(224, 176, 32);
+    border: 2px solid rgb(245, 238, 60);
+    margin-top: 3%;
+    font-size: 0.9em;
+}
+
+
+.ajouterAuPanierCateg button:hover
+{
+    border-color: #7b7817;
+    background-color: #7b7817;
+    color: white;
+}

@@ -1,0 +1,52 @@
+.Cch1 {
+  width: 100%;
+}
+
+.categorieHome {
+  /* border: 1px solid black; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ImageCardCategorieHome {
+  width: 20%;
+}
+
+.ImageCardCategorieHome img {
+  width: 100%;
+}
+
+.infoCardCategorieHome {
+  width: 60%;
+  font-size: 1.2em;
+  margin-left: 2%;
+}
+
+.CardsProductHome {
+  width: 100%;
+  /* border: 1px solid black; */
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.CardProductHome {
+  width: 47%;
+  border: 1px solid black;
+  margin: 1%;
+}
+
+.imageCardProductHome {
+  width: 100%;
+}
+
+.imageCardProductHome img {
+  width: 100%;
+}
+
+.infoCardProductHome {
+  padding: 2%;
+  font-size: 1.3em;
+}

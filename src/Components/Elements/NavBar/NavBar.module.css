@@ -1,0 +1,94 @@
+.invisible
+{
+    display:none;
+}
+
+.navBar
+{
+    background-color: #e2c86a;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap:10px
+}
+
+.logo
+{
+    background-color: #e2c86a;
+    width: 15%;
+    height: 70px;
+}
+
+
+.boutonNav1Style
+{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    border: 2px solid #e2c86a;
+    background-color: #e2c86a;
+    border-radius:2px;
+    width: 13%;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+
+.boutonNav1Style:hover
+{
+    border-color: black;
+}
+
+
+
+
+/* ---------------------------------------Style formNavBarStyle ----------------------- */
+
+.formNavBarStyle
+{
+    /* border: 2px solid #434242; */
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.formNavBarStyle input
+{
+    width: 87%;
+    height: 6vh;
+    border: 1px solid #000000;
+    font-size:1.2em;
+    padding-left: 1.2em;
+}
+
+.formNavBarStyle button
+{
+    width: 10%;
+    border: 1px solid #32e565;
+    border-radius:10px;
+    background-color: #32e565;
+    height: 6.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    margin-left: 1em;
+}
+
+
+.formNavBarStyle button:hover
+{
+    background-color: #116a2a;
+    border-color: #116a2a;
+    color: white;
+}
+
+
+
