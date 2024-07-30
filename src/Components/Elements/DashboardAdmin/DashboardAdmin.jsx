@@ -65,7 +65,7 @@ export default function DashboardAdmin() {
             <CardsProductDashboard />
           ) : buttonChoiceAdmin === "add" &&
             addProduit === "DashboardSousCategorie" ? (
-            <DashboardImageProduit />
+            <DashboardSousCategorie />
           ) : // <SousCategorieForm/>
           // <ImageSousCategorieForm/>
           // <DashboardSousCategorie/>
@@ -85,11 +85,14 @@ export default function DashboardAdmin() {
           ) : buttonChoiceAdmin === "add" &&
             addProduit === "FournisseurForm" ? (
             <FournisseurForm />
-          ) : (
+          ) : buttonChoiceAdmin === "add" &&
+            addProduit === "DashboardImageProduit" ? (
             // : buttonChoiceAdmin === "add" &&
             //   addProduit === "DashboardImageProduit" ? (
             //   <DashboardImageProduit />
             // )
+            <DashboardImageProduit />
+          ) : (
             <></>
           )}
         </div>
