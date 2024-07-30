@@ -6,6 +6,7 @@ import { AddProduitContext } from "../../Context/ProduitContext/AddProduitContex
 import DashboardFournisseur from "../DashboardFournisseur/DashboardFournisseur";
 import FournisseurForm from "../../forms/FournisseurForm/FournisseurForm";
 import DashboardImageProduit from "../DashboardImageProduit/DashboardImageProduit";
+import DashboardSousCategorie from "../DashboardSousCategorie/DashboardSousCategorie";
 import ImageProduitForm from "../../forms/ImageProduitForm/ImageProduitForm";
 
 export default function DashboardAdmin() {
