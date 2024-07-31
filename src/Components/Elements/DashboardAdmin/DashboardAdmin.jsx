@@ -1,6 +1,8 @@
 import CardsProductDashboard from "./CardsProductDashboard/CardsProductDashboard";
 import classes from "./DashboardAdmin.module.css";
 import AddProductForm from "../../forms/ProductForm/AddProductForm/AddProductForm";
+import CategorieForm from "../../forms/CategorieForm/CategorieForm";
+import SousCategorieForm from "../../forms/SousCategorieForm/SousCategorieForm";
 import { useContext, useState } from "react";
 import { AddProduitContext } from "../../Context/ProduitContext/AddProduitContext/AddProduitContext";
 import DashboardFournisseur from "../DashboardFournisseur/DashboardFournisseur";
@@ -8,6 +10,7 @@ import FournisseurForm from "../../forms/FournisseurForm/FournisseurForm";
 import DashboardImageProduit from "../DashboardImageProduit/DashboardImageProduit";
 import DashboardSousCategorie from "../DashboardSousCategorie/DashboardSousCategorie";
 import ImageProduitForm from "../../forms/ImageProduitForm/ImageProduitForm";
+import ModifProductForm from "../../forms/ProductForm/ModifProductForm/ModifProductForm";
 
 export default function DashboardAdmin() {
   const { addProduit } = useContext(AddProduitContext);
@@ -66,7 +69,7 @@ export default function DashboardAdmin() {
             <CardsProductDashboard />
           ) : buttonChoiceAdmin === "add" &&
             addProduit === "DashboardSousCategorie" ? (
-            <DashboardSousCategorie />
+            <ModifProductForm />
           ) : // <SousCategorieForm/>
           // <ImageSousCategorieForm/>
           // <DashboardSousCategorie/>

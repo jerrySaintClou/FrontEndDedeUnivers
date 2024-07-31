@@ -1,106 +1,97 @@
-.CardsProductDashboard
-{
-    /* border:2px solid green; */
-    margin-top: 2%;
-    display: flex;
-    flex-wrap: wrap;
+.CardsProductDashboard {
+  /* border:2px solid green; */
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.cardProductDashboard
-{
-    width: 30%;
-    border:2px solid #585858;
-    margin: 1%;
-    border-radius: 4px;
+.cardProductDashboard {
+  width: 30%;
+  border: 2px solid #585858;
+  margin: 1%;
+  border-radius: 4px;
 }
 
-.cardImageDashboard
-{
-    width: 100%;
+.cardImageDashboard {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cardImageDashboard img
-{
-    width: 100%;
+.cardImageDashboard img {
+  width: 50%;
 }
 
-
-.cardInfoDashboard
-{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.cardInfoDashboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-.titleStyleCardDasboard
-{
-    font-size: 1.6em;
-    color: #3d3d3d;
-    font-weight: bold;
+.titleStyleCardDasboard {
+  font-size: 1.6em;
+  color: #3d3d3d;
+  font-weight: bold;
 }
 
-.descriptionStyleCardDasboard
-{
-    font-size: 1.2em;
-    color: #3d3d3d;
+.descriptionStyleCardDasboard {
+  font-size: 1em;
+  color: #3d3d3d;
+  padding: 1%;
 }
 
-.priceStyleCardDasboard
-{
-    font-size: 2em;
-    font-weight: bold;
-    color: #3d3d3d;
+.priceStyleCardDasboard {
+  font-size: 2em;
+  font-weight: bold;
+  color: #3d3d3d;
 }
 
-
-.stockStyleCardDasboard{
-    border:1px solid #5fd896af;
-    background-color: #5fd896af;
-    font-size: 1.2em;
-    color: #3d3d3d;
-    padding: 3%;
+.stockStyleCardDasboard {
+  border: 1px solid #5fd896af;
+  background-color: #5fd896af;
+  font-size: 1.2em;
+  color: #3d3d3d;
+  padding: 3%;
 }
 
-
-.modifStyleDasboard
-{
-    width: 30%;
-    height: 5.5vh;
-    cursor: pointer;
-    font-size: 1.1em;
-    border-radius: 4px;
-    margin-top: 1%;
-    background-color: #f4d040d2;
-    border: 1px solid #f4d040d2;
+.modifStyleDasboard {
+  width: 30%;
+  height: 5.5vh;
+  cursor: pointer;
+  font-size: 1.1em;
+  border-radius: 4px;
+  margin-top: 1%;
+  background-color: #f4d040d2;
+  border: 1px solid #f4d040d2;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
 }
 
-
-.modifStyleDasboard:hover
-{
-    border-color: #76641ad2;
-    background-color: #76641ad2;
-    color: white;
+.modifStyleDasboard:hover {
+  border-color: #76641ad2;
+  background-color: #76641ad2;
+  color: white;
 }
 
-
-
-.deleteStyleDasboard
-{
-    width: 30%;
-    height: 5.5vh;
-    cursor: pointer;
-    font-size: 1.1em;
-    border-radius: 4px;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    background-color: #f3380edc;
-    border: 1px solid #f3380edc;
+.deleteStyleDasboard {
+  width: 30%;
+  height: 5.5vh;
+  cursor: pointer;
+  font-size: 1.1em;
+  border-radius: 4px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: #f3380edc;
+  border: 1px solid #f3380edc;
 }
 
-.deleteStyleDasboard:hover{
-    border-color: #87210adc;
-    background-color: #87210adc;
-    color: white;
+.deleteStyleDasboard:hover {
+  border-color: #87210adc;
+  background-color: #87210adc;
+  color: white;
 }

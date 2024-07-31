@@ -10,6 +10,7 @@ import CategoryProduct from "./Pages/CategoryProduct";
 import ShoppingCart from "./Pages/ShoppingCart";
 import ProfilAdmin from "./Pages/ProfilAdmin";
 import AddProduitContextProvider from "./Context/ProduitContext/AddProduitContext/AddProduitContext";
+import ModifProductForm from "./forms/ProductForm/ModifProductForm/ModifProductForm";
 
 export default function Router() {
   //var d'etat
@@ -30,6 +31,7 @@ export default function Router() {
           <Route path="/categoryProduct" element={<CategoryProduct />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route path="/profilAdmin" element={<ProfilAdmin />} />
+          {/* <Route path="/modifForm:idProduit" element={<ModifProductForm />} /> */}
         </Routes>
         <Footer />
       </BrowserRouter>

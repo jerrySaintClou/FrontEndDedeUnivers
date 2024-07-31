@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import classes from "./CardsProductDashboard.module.css";
 import axios from "axios";
 
@@ -39,7 +40,12 @@ export default function CardsProductDashboard() {
                 {produit.description}
               </p>
               <p className={classes.stockStyleCardDasboard}>{produit.prix}</p>
-              <button className={classes.modifStyleDasboard}>Modifier</button>
+              <Link
+                // to={`/modifForm:${produit.id}`}
+                className={classes.modifStyleDasboard}
+              >
+                Modifier
+              </Link>
               <button className={classes.deleteStyleDasboard}>Supprimer</button>
             </div>
           </div>

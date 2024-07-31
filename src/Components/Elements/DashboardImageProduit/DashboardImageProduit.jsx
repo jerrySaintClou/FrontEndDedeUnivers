@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import classes from "./DashboardImageProduit.module.css";
 import { AddProduitContext } from "../../Context/ProduitContext/AddProduitContext/AddProduitContext";
 import axios from "axios";
+import { IdAddProduitContext } from "../../Context/ProduitContext/AddProduitContext/IdAddProduitContext";
 export default function DashboardImageProduit() {
   const [imageProduits, setImageProduits] = useState([]);
-
+  const { idProduitAdd } = useContext(IdAddProduitContext);
+  console.log(idProduitAdd);
   useEffect(() => {
     const fetchProducts = async () => {
       try {

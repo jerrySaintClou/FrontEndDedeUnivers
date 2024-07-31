@@ -1,7 +1,24 @@
+import { useEffect, useState } from "react";
 import classes from "./Gch2.module.css";
 import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 export default function Gch2() {
+  const [produits, setProduits] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8084/api/produit/tousLesProduits"
+        );
+        setProduits(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <div className={classes.Gch2}>
       <div className={classes.carouselGch2}>
@@ -9,18 +26,23 @@ export default function Gch2() {
         <div className={classes.cardsAllGch2}>
           <div className={classes.ensembleDivGch2}>
             <div className={classes.divCardGch2}>
-              <Link className={classes.cardGch2}>
-                <div className={classes.imageCardGch2}>
-                  <img
-                    // src="https://americarprestige.com/wp-content/uploads/2013/02/location-ferrari-812-superfast-1.jpg"
-                    src=""
-                    alt=""
-                  />
-                </div>
-                <div className={classes.infoCardGch2}>
-                  <p></p>
-                </div>
-              </Link>
+              {produits.map((produit) => {
+                return (
+                  <Link className={classes.cardGch2}>
+                    <div className={classes.imageCardGch2}>
+                      <img
+                        // src="https://americarprestige.com/wp-content/uploads/2013/02/location-ferrari-812-superfast-1.jpg"
+                        src={produit.imageProduits[0].cheminImageProduit}
+                        alt=""
+                      />
+                    </div>
+                    <div className={classes.infoCardGch2}>
+                      <p></p>
+                    </div>
+                  </Link>
+                );
+              })}
+
               {/* <Link className={classes.cardGch2}>
                 <div className={classes.imageCardGch2}>
                   <img
