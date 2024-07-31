@@ -5,11 +5,14 @@ import classes from "./AddProductForm.module.css";
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { AddProduitContext } from "../../../Context/ProduitContext/AddProduitContext/AddProduitContext";
+import { IdAddProduitContext } from "../../../Context/ProduitContext/AddProduitContext/IdAddProduitContext";
 
 export default function AddProductForm() {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const { toggleDashboardImageProduit } = useContext(AddProduitContext);
+  const { modifIdProduitAdd } = useContext(IdAddProduitContext);
+  // const { modifIdProduitAdd } = useContext(IdAddProduitContext);
   const addProductSchema = z.object({
     nomProduit: z
       .string()
@@ -43,8 +46,9 @@ export default function AddProductForm() {
         "http://localhost:8084/api/produit/ajout",
         data
       );
-      console.log("Produit ajouté avec succès:", response.data);
+      console.log("Produit ajouté avec succès:", response.data.id);
       toggleDashboardImageProduit();
+      modifIdProduitAdd(12);
     } catch (error) {
       console.error("Erreur lors de l'ajout du produit:", error);
     }
