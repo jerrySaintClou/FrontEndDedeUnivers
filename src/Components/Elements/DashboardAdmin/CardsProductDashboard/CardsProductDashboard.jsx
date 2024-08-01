@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./CardsProductDashboard.module.css";
 import axios from "axios";
+import BoutonComponentDelete from "./BoutonComponentDelete/BoutonComponentDelete";
 
 export default function CardsProductDashboard() {
   const [produits, setProduits] = useState([]);
@@ -27,7 +28,7 @@ export default function CardsProductDashboard() {
         return (
           <div className={classes.cardProductDashboard} key={produit.id}>
             <div className={classes.cardImageDashboard}>
-              <img src={produit.imageProduits[0].cheminImageProduit} alt="" />
+              {/* <img src={produit.imageProduits[0].cheminImageProduit} alt="" /> */}
             </div>
             <div className={classes.cardInfoDashboard}>
               <p className={classes.titleStyleCardDasboard}>
@@ -46,7 +47,8 @@ export default function CardsProductDashboard() {
               >
                 Modifier
               </Link>
-              <button className={classes.deleteStyleDasboard}>Supprimer</button>
+              {/* <button className={classes.deleteStyleDasboard}>Supprimer</button> */}
+              <BoutonComponentDelete productId={produit.id} />
             </div>
           </div>
         );
