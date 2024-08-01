@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import classes from "./Gch2.module.css";
 import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
+import { useCart } from "react-use-cart";
 export default function Gch2() {
   const [produits, setProduits] = useState([]);
+  const { addItem } = useCart();
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -19,6 +22,14 @@ export default function Gch2() {
 
     fetchProducts();
   }, []);
+
+  // const addToCart = (product) => {
+  //   console.log(product);
+  //   const updatedCart = [...cart, product];
+  //   setCart(updatedCart);
+  //   localStorage.setItem("cart", JSON.stringify(updatedCart));
+  // };
+
   return (
     <div className={classes.Gch2}>
       <div className={classes.carouselGch2}>
@@ -28,7 +39,18 @@ export default function Gch2() {
             <div className={classes.divCardGch2}>
               {produits.map((produit) => {
                 return (
-                  <Link className={classes.cardGch2}>
+                  <Link
+                    className={classes.cardGch2}
+                    // onClick={() =>
+                    //   addToCart({
+                    //     id: produit.id,
+                    //     name: produit.nomProduit,
+                    //     price: produit.prix,
+                    //     image: produit.imageProduits[0].cheminImageProduit,
+                    //   })
+                    // }
+                    onClick={() => addItem(produit)}
+                  >
                     <div className={classes.imageCardGch2}>
                       <img
                         // src="https://americarprestige.com/wp-content/uploads/2013/02/location-ferrari-812-superfast-1.jpg"

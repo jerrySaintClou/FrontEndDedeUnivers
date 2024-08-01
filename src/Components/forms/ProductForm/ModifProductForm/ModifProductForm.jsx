@@ -40,6 +40,7 @@ export default function ModifProductForm() {
     stock: z
       .number()
       .positive(/*{ message: "le stock ne peut être négative " }*/),
+    id: z.number(),
   });
   const {
     register,
@@ -49,25 +50,25 @@ export default function ModifProductForm() {
     resolver: zodResolver(addProductSchema),
   });
 
-  function addProduct(data) {
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:8084/api/produit/ajout",
-    //     data
-    //   );
-    //   console.log("Produit ajouté avec succès:", response.data.id);
-    //   toggleDashboardImageProduit();
-    //   modifIdProduitAdd(12);
-    // } catch (error) {
-    //   console.error("Erreur lors de l'ajout du produit:", error);
-    // }
+  async function updateProduct(data) {
+    try {
+      const response = await axios.put(
+        `http://localhost:8084/api/produit/modif`,
+        {
+          nomProduit: data.nomProduit,
+        }
+      );
+      console.log("Produit modifié:", response.data);
+    } catch (error) {
+      console.error("Erreur lors de la modification du produit:", error);
+    }
     console.log("hello");
   }
 
   return (
     <form
       className={classes.formulaireContact}
-      onSubmit={handleSubmit(addProduct)}
+      onSubmit={handleSubmit(updateProduct)}
     >
       <div className={classes.inputDivStyle}>
         <label for="nomProduit">Nom du produit: {produits.nomProduit}</label>
@@ -81,7 +82,7 @@ export default function ModifProductForm() {
         />
         <p className={classes.errorStyle}>{errors.nomProduit?.message}</p>
       </div>
-
+      <input type="hidden" value="1" />
       <div className={classes.inputDivStyle}>
         <label for="description">Description</label>
         <textarea
