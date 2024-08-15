@@ -30,7 +30,8 @@ export default function Router() {
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/product" element={<Product />} />
-          <Route path="/categoryProduct" element={<CategoryProduct />} />
+          {/* <Route path="/categoryProduct" element={<CategoryProduct />} /> */}
+          <Route path="/categoryProduct/:idCategorie" element={<CategoryProduct />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route path="/profilAdmin" element={<ProfilAdmin />} />
           {/* <Route path="/modifForm:idProduit" element={<ModifProductForm />} /> */}

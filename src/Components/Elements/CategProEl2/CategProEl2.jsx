@@ -1,9 +1,35 @@
-import classes from "./CategProEl2.module.css"
+import { useEffect, useState } from "react";
+import classes from "./CategProEl2.module.css";
+import {useParams} from 'react-router-dom';
 export default function CategProEl2(){
+    const idCategorie = useParams();
+    
+//   const [products, setProducts] = useState([]);
+    const [categorie, setCategorie] = useState({"id":1, "nomCategorie":"categorie1"});
+
+//   useEffect(() => {
+//     const fetchProducts = async () => {
+//       try {
+//         const response = await axios.get(`http://localhost:8084/api/categorie?id=${idCategorie.idCategorie}`);
+//         setProducts(response.data);
+//       } catch (error) {
+//         console.error('Erreur lors de la récupération des produits:', error);
+//       }
+//     };
+
+//     fetchProducts();
+//   }, [categoryName]);
+
+
     return(
         <>
         <div>
-
+            <div className={classes.categorieDiv}>
+                <div className={classes.imageCategorieDiv}>
+                    <img src="https://media.ouest-france.fr/v1/pictures/MjAyMTA1NTc1ZmU0OWEwZDc1NDcxYmMwNzJiYjkzZTQ3YWRlMzQ?width=1260&height=708&focuspoint=50%2C25&cropresize=1&client_id=bpeditorial&sign=b4c7ed803dcf64503eb0ea44974e8abfb17e30df213bd18d261cd77a2e5e1b62" alt="" />
+                </div>
+                <p>{categorie.nomCategorie}</p>
+            </div>
             <div className={classes.filtrerCategProduct}>
                 <form action="" method="" className={classes.trieCategorieParNomCateg}>
                     <div className={classes.divCategSearchByName}>

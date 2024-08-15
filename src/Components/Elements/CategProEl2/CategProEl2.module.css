@@ -1,3 +1,30 @@
+.categorieDiv{
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.imageCategorieDiv{
+    border: 2px solid black;
+    width: 15%;
+}
+
+.imageCategorieDiv img{
+    width: 100%;
+}
+
+.categorieDiv p{
+    font-size: 1.4em;
+    margin-left: 2%;
+    font-weight: bold;
+}
+
+
+
+/* -----------------------------------------------Style formulaire categorie recherche --------------------------------------- */
+
 .filtrerCategProduct{
     display: flex;
     /* align-items: center; */

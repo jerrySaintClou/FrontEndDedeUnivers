@@ -292,20 +292,20 @@ export default function NavBar3(){
                  
         </div>
         <div className={classes.navBarCategorie}>
-            <Link className={classes.boutonNav1Style}>
+            <Link to="/categoryProduct/1" className={classes.boutonNav1Style}>
                 Categorie1
             </Link>
-            <Link className={classes.boutonNav1Style}>
+            <Link to="/categoryProduct/2" className={classes.boutonNav1Style}>
                 Categorie2
             </Link>
-            <Link className={classes.boutonNav1Style}>
+            <Link to="/categoryProduct/3" className={classes.boutonNav1Style}>
                 Categorie3
             </Link>
-            <Link className={classes.boutonNav1Style}>
+            <Link to="/categoryProduct/4" className={classes.boutonNav1Style}>
                 Categorie4
             </Link>
             
-            <Link className={classes.boutonNav1Style}>
+            <Link to="/categoryProduct/1" className={classes.boutonNav1Style}>
                 tout les categories
             </Link>
         </div>
