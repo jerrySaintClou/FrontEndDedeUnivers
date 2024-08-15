@@ -11,6 +11,7 @@ import ShoppingCart from "./Pages/ShoppingCart";
 import ProfilAdmin from "./Pages/ProfilAdmin";
 import AddProduitContextProvider from "./Context/ProduitContext/AddProduitContext/AddProduitContext";
 import ModifProductForm from "./forms/ProductForm/ModifProductForm/ModifProductForm";
+import NavBar3 from "./Elements/NavBar3/NavBar3";
 
 export default function Router() {
   //var d'etat
@@ -20,7 +21,8 @@ export default function Router() {
   return (
     <AddProduitContextProvider>
       <BrowserRouter>
-        <NavBar />
+        {/* <NavBar /> */}
+        <NavBar3/>
         {/* <Cookie /> */}
         <Routes>
           <Route path="/" element={<Home />} />

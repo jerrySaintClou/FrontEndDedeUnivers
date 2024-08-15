@@ -1,0 +1,290 @@
+.filtrerCategProduct{
+    display: flex;
+    /* align-items: center; */
+    /* border: 2px solid black; */
+    margin-left:7%;
+    margin-top: 2%;
+}
+
+.trieCategorieParNomCateg{
+    /* border: 2px solid black; */
+    width: 50%;
+    display: flex;
+    align-items: end;
+}
+
+.trieCategorieParNomCateg input{
+    width: 99%;
+    height: 5vh;
+    border: 2px solid black;
+}
+
+.trieCategorieParNomCateg button{
+    width: 30%;
+    cursor: pointer;
+    height: 6vh;
+    background-color: #7092BE;
+    border: 1px solid #7092BE;
+    font-size: 1em;
+}
+
+
+.trieCategorieParNomCateg button:hover{
+    background-color: #204147;
+    border-color: #204147;
+    color: white;
+}
+
+.divCategSearchByName{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    width: 65%;
+    margin-left: 2%;
+}
+
+.divCategSearchByName label{
+    margin-bottom:1%;
+    font-size: 1.1em;
+}
+
+.trieCategorie
+{
+    /* border: 1px solid black; */
+    width: 40%;
+    /* margin: auto; */
+    margin-top: 1%;
+    display: flex;
+    align-items: end;
+}
+
+.trieForSelectCateg
+{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid green; */
+    width: 70%;
+}
+
+
+
+.labelTrieCategorie
+{
+    font-size: 1.3em;
+    /* font-weight: bold; */
+    /* margin-bottom: 2%; */
+    margin-left: 2%;
+}
+
+
+.selectTrieCategorie
+{
+    width: 97%;
+    height: 5vh;
+    font-size: 1.1em;
+    border: 2px solid black;
+    margin-left: 2%;
+}
+
+.trieCategorie button{
+    width: 25%;
+    height: 5vh;
+    cursor: pointer;
+    background-color: #7092BE;
+    border: 1px solid #7092BE;
+    font-size: 1em;
+}
+
+    
+.trieCategorie button:hover{
+    
+    background-color: #204147;
+    border-color: #204147;
+    color: white;
+}
+
+
+.contenuLaCategorie
+{
+    display: flex;
+}
+
+
+
+/* -----------------------------------------------Contenue Categorie Style-------------------------------------------- */
+
+
+
+.filtreCategorie
+{
+    /* border: 2px solid black; */
+    width: 15%;
+    background-color: #fff;
+    margin: 1%;
+    padding: 1%;
+}
+
+
+.filtreCategoriePStyle
+{
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-left: 2%;
+    text-decoration: none;
+    color: black;
+}
+
+.listeFiltre
+{
+    list-style: none;
+    color: rgb(72, 72, 72);
+    font-size: 1.1em;
+    margin-left: 1%;
+}
+
+.listeFiltre li
+{
+    margin-bottom: 8%;
+}
+
+
+.listeFiltre a
+{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}
+
+
+.listeFiltre a:hover
+{
+    text-decoration: underline;
+}
+
+
+
+
+/* -----------------------------------------------lesCardsCategorie style ----------------------------------------------- */
+
+
+.lesCardsCategorie
+{
+    /* border: 2px solid black; */
+    width: 93%;
+    margin-left: 3%;
+    margin-top: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+.cardCategorie
+{
+    /* border: 2px solid black; */
+    width: 43%;
+    /* height: 35vh; */
+   margin: 2%;
+}
+
+.imageCardCategorie
+{
+    width: 100%;
+    /* height: 35vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.imageCardCategorie img
+{
+    width: 100%;
+}
+
+.infoCardCategorie
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoCardCategorie p
+{
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.nomProduitCardCategorie
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.pStyleCateg
+{
+    font-size: 1.1em;
+}
+
+.voirPlusInfoStyleCateg
+{
+    text-decoration: none;
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1CC47C;
+    border-radius: 10px;
+    color: black;
+    font-size: 1.2em;
+    margin-top:2%;
+}
+.voirPlusInfoStyleCateg:hover{
+    background-color: #0d653f;
+    color: white;
+}
+.voirLeProduitStyleCateg
+{
+    text-decoration: none;
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1ea0ba;
+    border-radius: 10px;
+    color: black;
+    font-size: 1.2em;
+}
+
+.voirLeProduitStyleCateg:hover
+{
+    background-color: #076477;
+    color: white;
+}
+
+.ajouterAuPanierCateg
+{
+    width: 100%;
+}
+
+
+.ajouterAuPanierCateg button
+{
+    width: 100%;
+    height: 6vh;
+    cursor: pointer;
+    background-color: rgb(224, 176, 32);
+    border: 2px solid rgb(224, 176, 32);
+    margin-top: 3%;
+    font-size: 1.2em;
+    border-radius: 10px;
+}
+
+
+.ajouterAuPanierCateg button:hover
+{
+    border-color: #7b7817;
+    background-color: #7b7817;
+    color: white;
+}
