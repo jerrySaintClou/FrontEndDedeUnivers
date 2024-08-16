@@ -10,21 +10,12 @@ export const DataProvider = ({ children }) => {
     const [idSousCategorie, setIdSousCategorie] = useState(null);
     const [idRole, setIdRole] = useState(null);
     const [nomCategorie, setNomCategorie] = useState(null);
+
+    const initialToken = localStorage.getItem('token');
+    const initialRefreshToken = localStorage.getItem('refresh-token');
   
-  
-    const [auth, setAuth] = useState(() => {
-      const token = localStorage.getItem('tokenBearer');
-      const refreshToken = localStorage.getItem('refreshToken');
-      return { token, refreshToken };
-    });
-  
-  
-    useEffect(() => {
-      localStorage.setItem('tokenBearer', auth.token);
-      localStorage.setItem('refreshToken', auth.refreshToken);
-    }, [auth]);
-  
-  
+    const [token, setToken] = useState(initialToken);
+    const [refreshToken, setRefreshToken] = useState(initialRefreshToken);
   
     return (
       <dateContext.Provider value={{ 
@@ -35,7 +26,9 @@ export const DataProvider = ({ children }) => {
         //   idSousCategorie, setIdSousCategorie, 
         //   idRole, setIdRole,
         //   auth, setAuth ,
-        //   nomCategorie, setNomCategorie
+        //   nomCategorie, setNomCategorie,
+        //   token, setToken,
+        //   refreshToken, setRefreshToken
       }}>
         {children}
       </dateContext.Provider>
@@ -44,8 +37,6 @@ export const DataProvider = ({ children }) => {
   
   //export { DataContext, DataProvider };
   
-  export const useAuth = () => {
-    return useContext(AuthContext);
-  };
+  
   
   

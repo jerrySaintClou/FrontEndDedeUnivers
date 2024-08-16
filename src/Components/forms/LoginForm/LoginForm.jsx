@@ -3,8 +3,10 @@ import classes from "./LoginForm.module.css";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+// import {DataProvider} from "../../Context/DataContext/DataContext";
 
 export default function LoginForm() {
+		// const { token, setToken, refreshToken, setRefreshToken } = useContext(DataProvider);
 	const loginSchema = z.object({
 		email: z.string().email({ message: "Email incorrecte!" }),
 		// password: z.string().min(8, {
@@ -25,8 +27,23 @@ export default function LoginForm() {
 		resolver: zodResolver(loginSchema),
 	  });
 
-	function loginUser() {
+	async function loginUser() {
 		console.log("yolo");
+		try {
+			const response = await axios.post('/api/login', data);
+		setToken(response.data.BEARER);
+		setRefreshToken(response.data.REFRESH);
+		console.log('Token reçu:', token);
+		// Stocker le token dans le localStorage ou le state
+		localStorage.setItem('token', token);
+    	localStorage.setItem('refresh-token', refreshToken);
+  
+		// Mettre à jour le contexte et le localStorage
+  
+	  } catch (error) {
+		console.error('Erreur lors de la connexion:', error);
+	  }
+
 	  }
 
 

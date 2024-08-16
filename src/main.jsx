@@ -7,7 +7,10 @@ import { CartProvider } from "react-use-cart";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CartProvider>
     <React.StrictMode>
+    <CartProvider>
       <App />
+    </CartProvider>
+
     </React.StrictMode>
   </CartProvider>
 );

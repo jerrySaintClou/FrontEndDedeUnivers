@@ -39,7 +39,7 @@ export default function ShoppingCartElement() {
                   </span>
                 </p>
 
-                <form action="" className={classes.ajoutPanier}>
+                {/* <form action="" className={classes.ajoutPanier}>
                   <input
                     type="number"
                     min="1"
@@ -48,7 +48,15 @@ export default function ShoppingCartElement() {
                     placeholder="qté:1"
                   />
                   <button type="submit">valider</button>
-                </form>
+                </form> */}
+                    {item.quantity} x {item.name} - {item.price}€
+
+                    <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)}>-</button>
+    <button onClick={() => updateItemQuantity(item.id, item.quantity + 1)}>+</button>
+    <button onClick={() => removeItem(item.id)}>Supprimer</button>
+    <p className={classes.infoStyle}><span className={classes.spanNomPanier}>Prix Quantiter:</span> 45€</p>
+
+
                 <p className={classes.infoStyle}>
                   <span className={classes.spanNomPanier}>
                     Prix Quantiter: {item.quantity}
