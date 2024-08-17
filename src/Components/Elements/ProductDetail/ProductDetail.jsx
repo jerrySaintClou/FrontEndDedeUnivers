@@ -6,6 +6,28 @@ import CommentProduct from "./CommentProduct/CommentProduct";
 
 
 export default function ProductDetail() {
+    
+    const idProduit = useParams();
+
+//     const [product, setProduct] = useState(null);
+
+//   useEffect(() => {
+//     const fetchProduct = async () => {
+//       try {
+//         const response = await axios.get(`https://api.example.com/products/${idProduit}`);
+//         setProduct(response.data);
+//       } catch (error) {
+//         console.error('Error fetching product:', error);
+//       }
+//     };
+
+//     fetchProduct();
+//   }, [idProduit]);
+
+//   if (!product) {
+//     return <p>Loading...</p>;
+//   }
+
     const [buttonActive,setButtonActive] = useState(false);
     const [contentMenu,setContentMenu] = useState("");
 
@@ -37,7 +59,7 @@ export default function ProductDetail() {
 
                 <div className={classes.imageProduct}>
                     <div className={classes.theImageProduct}>
-
+                        <img src="{product.imageProduits[0].cheminImageProduit}" alt="" srcset="" />
                     </div>
                     <div className={classes.carousselProduct}>
                         <button>
@@ -46,6 +68,11 @@ export default function ProductDetail() {
 
                         <div className={classes.theCarousselProduct}>
                             <div className={classes.imagesCarousselProduct}>
+                                {/* {product.imageProduits.map((imageProduit)=>{
+                                    <div className={classes.imageCaroussel}>
+                                        <img src={imageProduit.cheminImageProduit} alt="" />
+                                    </div>
+                                })} */}
                                 <div className={classes.imageCaroussel}>
 
                                 </div>
@@ -69,9 +96,9 @@ export default function ProductDetail() {
                     </div>
                 </div>
                 <div className={classes.menuProduct}>
-                    <p className={classes.nomProduitStyle}>Nom du produit</p>
-                    <p className={classes.pStyle}>Prix du produit</p>
-                    <p className={classes.pStyle}>stocks</p>
+                    <p className={classes.nomProduitStyle}>product.nomProduit</p>
+                    <p className={classes.pStyle}>product.prix€</p>
+                    <p className={classes.pStyle}>product.stock</p>
                     <p className={classes.pStyle}>Note</p>
                     <p className={classes.pStyle}>Nombre de commentaires</p>
                     
@@ -100,4 +127,5 @@ export default function ProductDetail() {
             
         </div>
     )
+
 }

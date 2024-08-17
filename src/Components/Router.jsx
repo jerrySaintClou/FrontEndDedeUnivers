@@ -14,30 +14,29 @@ import ModifProductForm from "./forms/ProductForm/ModifProductForm/ModifProductF
 import NavBar3 from "./Elements/NavBar3/NavBar3";
 
 export default function Router() {
-  //var d'etat
-
-  // console.log(themeDark);
-
-  return (
+  return(
     <AddProduitContextProvider>
       <BrowserRouter>
-        {/* <NavBar /> */}
-        <NavBar3/>
-        {/* <Cookie /> */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/product" element={<Product />} />
-          {/* <Route path="/categoryProduct" element={<CategoryProduct />} /> */}
-          <Route path="/categoryProduct/:idCategorie" element={<CategoryProduct />} />
-          <Route path="/shoppingCart" element={<ShoppingCart />} />
-          <Route path="/profilAdmin" element={<ProfilAdmin />} />
-          {/* <Route path="/modifForm:idProduit" element={<ModifProductForm />} /> */}
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      {/* <Navbar /> */}
+      <NavBar3 />
+      {/* <Cookie /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/product/:idProduit" element={<Product />} />
+        {/* <Route path="/categoryProduct" element={<CategoryProduct />} /> */}
+        <Route path="/categoryProduct/:idCategorie" element={<CategoryProduct />} />
+        <Route path="/shoppingCart" element={<ShoppingCart />} />
+        <Route path="/profilAdmin" element={<ProfilAdmin />} />
+        
+      </Routes>
+      <Footer/>
+      
+    </BrowserRouter>
     </AddProduitContextProvider>
-  );
+
+  )
+
 }

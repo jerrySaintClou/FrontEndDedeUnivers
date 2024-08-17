@@ -57,8 +57,14 @@ export default function NavBar3(){
         setButtonCliked("paramètre");
         setActiveButton(!activeButton);
     }
-
-
+    const produits = JSON.parse(localStorage.getItem("produits")) || [];
+    const nombreDeProduits = produits.length;
+    let prixTotal = 0;
+    console.log(nombreDeProduits)
+    for(let i = 0; i < nombreDeProduits; i++)
+    {
+        prixTotal += produits[i].prix
+    }
     return(
         <>
         <div className={classes.navBar}>
@@ -246,12 +252,12 @@ export default function NavBar3(){
    id="boutonCategorie"
    className={buttonClicked === "panier" && activeButton === true ?  classes.boutonNav1Style:classes.invisible}
 >
-	nombre de produit : 3
+    Nombre de produit : {nombreDeProduits}
 </p>
 <p 
     className={buttonClicked === "panier" && activeButton === true ?  classes.boutonNav1Style:classes.invisible}  
  >
-   Coût totale : 10€
+   Coût totale : {prixTotal}€
 </p>
 
 <Link
@@ -311,4 +317,5 @@ export default function NavBar3(){
         </div>
         </>
     )
+
 }
