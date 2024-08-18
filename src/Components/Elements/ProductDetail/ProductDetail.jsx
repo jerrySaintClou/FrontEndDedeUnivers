@@ -1,28 +1,67 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./ProductDetail.module.css";
 import DescriptionProduct from "./DescriptionProduct/DescriptionProduct";
 import SimilarProuct from "./SimilarProduct/SimilarProduct";
 import CommentProduct from "./CommentProduct/CommentProduct";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 
 export default function ProductDetail() {
     
     const idProduit = useParams();
 
-//     const [product, setProduct] = useState(null);
+    const [product, setProduct] = useState(null);
+    
+    const [imageProduits, setImageProduits] = useState([]);
+    
+    const [imageProduit, setImageProduit] = useState([]);
 
-//   useEffect(() => {
-//     const fetchProduct = async () => {
-//       try {
-//         const response = await axios.get(`https://api.example.com/products/${idProduit}`);
-//         setProduct(response.data);
-//       } catch (error) {
-//         console.error('Error fetching product:', error);
-//       }
-//     };
+  useEffect(() => {
+    // const fetchProduct = async () => {
+    //   try {
+    //     const response = await axios.get(`http://localhost:9195/api/produit/${idProduit.idProduit}`);
+    //     setProduct(response.data);
+    //     console.log(response.data);
+    //   } catch (error) {
+    //     console.log('Erreur lors de la récupération du produit:', error);
+    //   }
+    // };
+    let t = [];
+    const fetchImageProduit = async () => {
+        try {
+          const response = await axios.get(`http://localhost:9195/api/imageProduit/all`); 
+          for(let i = 0; i < response.data.length;i++)
+          {
+            if(response.data[i].produit.id == idProduit.idProduit ){
+                setProduct(response.data[i].produit);
+                t.push(response.data[i])
+                setImageProduit(response.data[i]);
+            }
+        }
+        setImageProduits(t);
+         
+        //   if(response.data.)
+          console.log(response.data);
+        //   console.log(response.data.length);
+          console.log("la valeur de imageProduits est de ");
+          console.log(imageProduits);
+          console.log("la valeur de t est de ");
+          console.log(t);
+          
+        //   console.log(response.data.length);
+        console.log("la valeur d'une seule imageProduit est de ");
+        console.log(imageProduit);
+          
+        } catch (error) {
+          console.log('Erreur lors de la récupération des image du produit:', error);
+        }
+      };
 
-//     fetchProduct();
-//   }, [idProduit]);
+
+    // fetchProduct();
+    fetchImageProduit();
+  }, [idProduit]);
 
 //   if (!product) {
 //     return <p>Loading...</p>;
@@ -59,7 +98,7 @@ export default function ProductDetail() {
 
                 <div className={classes.imageProduct}>
                     <div className={classes.theImageProduct}>
-                        <img src="{product.imageProduits[0].cheminImageProduit}" alt="" srcset="" />
+                        <img src={imageProduit.cheminImageProduit} alt="" srcset="" />
                     </div>
                     <div className={classes.carousselProduct}>
                         <button>
@@ -68,12 +107,15 @@ export default function ProductDetail() {
 
                         <div className={classes.theCarousselProduct}>
                             <div className={classes.imagesCarousselProduct}>
-                                {/* {product.imageProduits.map((imageProduit)=>{
+
+                                {imageProduits.map((imageProduit)=>{
+                                    return(
                                     <div className={classes.imageCaroussel}>
                                         <img src={imageProduit.cheminImageProduit} alt="" />
                                     </div>
-                                })} */}
-                                <div className={classes.imageCaroussel}>
+                                    )
+                                })}
+                                {/* <div className={classes.imageCaroussel}>
 
                                 </div>
                                 <div className={classes.imageCaroussel}>
@@ -84,7 +126,7 @@ export default function ProductDetail() {
                                 </div>
                                 <div className={classes.imageCaroussel}>
 
-                                </div>
+                                </div> */}
                            </div>
                         </div>
                 
@@ -96,9 +138,14 @@ export default function ProductDetail() {
                     </div>
                 </div>
                 <div className={classes.menuProduct}>
-                    <p className={classes.nomProduitStyle}>product.nomProduit</p>
-                    <p className={classes.pStyle}>product.prix€</p>
-                    <p className={classes.pStyle}>product.stock</p>
+                    {
+                        product === undefined || product === null?
+                        <></>:
+                        <p className={classes.nomProduitStyle}>{product.nomProduit}</p>
+
+                    }
+                    {/* <p className={classes.pStyle}>{product.prix}€</p>
+                    <p className={classes.pStyle}>{product.stock}</p> */}
                     <p className={classes.pStyle}>Note</p>
                     <p className={classes.pStyle}>Nombre de commentaires</p>
                     

@@ -200,6 +200,7 @@
     margin-left: 3%;
     margin-top: 1%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     background-color: white;
 }
@@ -207,7 +208,7 @@
 .cardCategorie
 {
     /* border: 2px solid black; */
-    width: 43%;
+    width: 30%;
     /* height: 35vh; */
    margin: 2%;
 }
@@ -219,7 +220,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    /* border: 2px solid black; */
 }
 
 .imageCardCategorie img
@@ -314,4 +315,12 @@
     border-color: #7b7817;
     background-color: #7b7817;
     color: white;
+}
+
+
+
+.errorStyle
+{
+	color:red;
+	font-size: 1.1em;
 }

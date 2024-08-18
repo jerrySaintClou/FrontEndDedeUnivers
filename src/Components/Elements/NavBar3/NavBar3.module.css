@@ -123,3 +123,27 @@
     justify-content: center;
     background-color: #e2c86a;
 }
+
+
+.sousNavBarCategorieDiv{
+    /* border: 2px solid blue; */
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .sousNavBarCategorieDiv:hover{
+    border: 2px solid black;
+} */
+
+.boutonNavBarCategorie{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    /* border: 2px solid black; */
+}
+
+.boutonNavBarCategorie:hover{
+    text-decoration: underline;
+}

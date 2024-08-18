@@ -10,7 +10,7 @@ export default function CardsProductDashboard() {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8084/api/produit/tousLesProduits"
+          "http://localhost:9195/api/produit/tousLesProduits"
         );
         setProduits(response.data);
         console.log(response.data);

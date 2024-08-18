@@ -2,23 +2,28 @@ import { useEffect, useState } from "react";
 import classes from "./CategProEl2.module.css";
 import {Link, useParams} from 'react-router-dom';
 import { useCart } from 'react-use-cart';
+import axios from 'axios';
+import SearchNameProduct from "../../forms/ProductForm/SearchNameProduct/SearchNameProduct";
+import { useForm } from "react-hook-form";
 
 export default function CategProEl2(){
   
   const idCategorie = useParams();
     
-  //   const [products, setProducts] = useState([]);
-      const [produits, setProduits] = useState([
-        {"id":1,"nomProduit":"produit1","description":"description produit1",
-        "prix":32,"stock":45,"dateMiseEnLigne":"2024-10-03",
-        "imageProduits":[{"id":1,"cheminImageProduit":"https://fr.web.img2.acsta.net/r_654_368/newsv7/20/04/15/16/51/5108362.jpg"}]
-      },
-      {"id":2,"nomProduit":"produit2","description":"description produit2",
-        "prix":32,"stock":45,"dateMiseEnLigne":"2024-10-03",
-        "imageProduits":[{"id":1,"cheminImageProduit":"https://www.slate.fr/uploads/store/story_185441/large_landscape_185441.jpg"}]
-      }
+    const [produits, setProduits] = useState([]);
+    const [imageProduits, setImageProduits] = useState([]);
+    const [triOption, setTriOption] = useState("");
+      // const [produits, setProduits] = useState([
+      //   {"id":1,"nomProduit":"produit1","description":"description produit1",
+      //   "prix":32,"stock":45,"dateMiseEnLigne":"2024-10-03",
+      //   "imageProduits":[{"id":1,"cheminImageProduit":"https://fr.web.img2.acsta.net/r_654_368/newsv7/20/04/15/16/51/5108362.jpg"}]
+      // },
+      // {"id":2,"nomProduit":"produit2","description":"description produit2",
+      //   "prix":32,"stock":45,"dateMiseEnLigne":"2024-10-03",
+      //   "imageProduits":[{"id":1,"cheminImageProduit":"https://www.slate.fr/uploads/store/story_185441/large_landscape_185441.jpg"}]
+      // }
       
-      ]);
+      // ]);
   
       function ajoutPanier(produit){
         // let produits = JSON.parse(localStorage.getItem("produits")) || [];
@@ -45,49 +50,130 @@ export default function CategProEl2(){
            localStorage.setItem("produits", JSON.stringify(produits));
       }
   
-  //   useEffect(() => {
-  //     const fetchProducts = async () => {
-  //       try {
-  //         const response = await axios.get(`http://localhost:8084/trouverLesProduitsAvecUneSousCategorie/?sousCategorieId=${idCategorie.idCategorie}`);
-  //         setProducts(response.data);
-  //       } catch (error) {
-  //         console.error('Erreur lors de la récupération des produits:', error);
-  //       }
-  //     };
+    useEffect(() => {
+      // const fetchProducts = async () => {
+      //   try {
+      //     const response = await axios.get(`http://localhost:9195/api/produit/RecupererLesProduitsAvecUneSousCategorie/${idCategorie.idCategorie}`);
+      //     setProduits(response.data);
+      //     console.log(response.data);
+      //     console.log("${idCategorie.idCategorie}");
+          
+      //   } catch (error) {
+      //      console.error('Erreur lors de la récupération des produits:', error);
+      //   }
+      // };
   
-  //     fetchProducts();
-  //   }, [categoryName]);
+      // fetchProducts();
+
+
+      let t = [];
+      let t2 = [];
+      const fetchImageProduit = async () => {
+        try {
+          const response = await axios.get(`http://localhost:9195/api/imageProduit/all`); 
+          for(let i = 0; i < response.data.length;i++)
+          {
+            if(response.data[i].produit.sousCategorie.id == idCategorie.idCategorie ){
+                t.push(response.data[i].produit);
+                // setImageProduits(response.data[i]);
+                t2.push(response.data[i]);
+              }
+          }
+          for(let i = 0; i< t.length-1;i++){
+            for(let j = i +1; j< t.length;j++){
+              if(t[i].id === t[j].id){
+                t.splice(j,1);
+                t2.splice(j,1);
+                
+              }
+            }
+              
+          }
+        setProduits(t);
+        setImageProduits(t2);
+        console.log(t2)
+         
+        //   if(response.data.)
+          // console.log(response.data);
+        //   console.log(response.data.length);
+          // console.log("la valeur de imageProduits est de ");
+          // console.log(imageProduits);
+
+
+          // console.log("la valeur de t est de ");
+          // console.log(t);
+          
+        //   console.log(response.data.length);
+        // console.log("la valeur d'une seule imageProduit est de ");
+        // console.log(imageProduits);
+          
+        } catch (error) {
+          console.log('Erreur lors de la récupération des image du produit:', error);
+        }
+      };
+
+
+    fetchImageProduit();
+
+    }, [idCategorie]);
   
+
+    
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        trierProduits(triOption);
+    };
+
+      const trierProduits = (option) => {
+        let produitsTries = [...produits];
+        if (option === "Prix croissant") {
+            produitsTries.sort((a, b) => a.prix - b.prix);
+        } else if (option === "Prix décroissant") {
+            produitsTries.sort((a, b) => b.prix - a.prix);
+        }
+        setProduits(produitsTries);
+    };
   
       return(
           <>
           <div>
               <div className={classes.categorieDiv}>
                   <div className={classes.imageCategorieDiv}>
-                      <img src="https://media.ouest-france.fr/v1/pictures/MjAyMTA1NTc1ZmU0OWEwZDc1NDcxYmMwNzJiYjkzZTQ3YWRlMzQ?width=1260&height=708&focuspoint=50%2C25&cropresize=1&client_id=bpeditorial&sign=b4c7ed803dcf64503eb0ea44974e8abfb17e30df213bd18d261cd77a2e5e1b62" alt="" />
+                      {/* <img src={produits[0].sousCategorie.imageSousCategorie} alt="" /> */}
                   </div>
-                  <p>Sous Categorie 1</p>
+                  {/* <p>{produits[0].sousCategorie.nomSousCategorie}</p> */}
               </div>
               <div className={classes.filtrerCategProduct}>
-                  <form action="" method="" className={classes.trieCategorieParNomCateg}>
+                  <form  
+                    className={classes.trieCategorieParNomCateg}
+                    
+                  >
                       <div className={classes.divCategSearchByName}>
                           <label htmlFor="SearchByName">Rechercher un produit a partir du nom de la categorie</label>
                            <input type="text" name="" id="SearchByName" placeholder="Rechercher un produit a partir du nom de la categorie" />
                       </div>
                       <button>Rechercher</button>
                   </form>
+
+                  {/* <SearchNameProduct/> */}
   
-                  <form action="" method="" className={classes.trieCategorie}>
+                  <form action="" method="" className={classes.trieCategorie} onSubmit={handleSubmit}>
                       <div className={classes.trieForSelectCateg}>
                           <label for="" className={classes.labelTrieCategorie}>
                               Trier par:
                           </label>
-                          <select name="" id="" className={classes.selectTrieCategorie}>
-                              <option value="">Nom croissant</option>
-                              <option value="">Nom décroissant</option>
+                          <select 
+                            name="" id="" 
+                            className={classes.selectTrieCategorie}
+                            // value={triOption}
+                            onChange={(e) => setTriOption(e.target.value)}
+                          >
+                              {/* <option value="">Nom croissant</option> */}
+                              {/* <option value="">Nom décroissant</option> */}
                               <option value="">Prix croissant</option>
                               <option value="">Prix décroissant</option>
-                              <option value="">Date d'ajout</option>
+                              {/* <option value="">Date d'ajout</option> */}
                           </select>
                       </div>
                       <button>Rechercher</button>
@@ -99,24 +185,24 @@ export default function CategProEl2(){
          
   
           <div className={classes.lesCardsCategorie}>
-            {produits.map((produit) => {
+            {imageProduits.map((imageProduit) => {
               return (
-                <div className={classes.cardCategorie}>
+                <div className={classes.cardCategorie} key={imageProduit.id}>
                 <div className={classes.imageCardCategorie}>
-                  <img src={produit.imageProduits[0].cheminImageProduit} alt="" srcset="" />
+                  <img src={imageProduit.cheminImageProduit} alt="" srcset="" />
                 </div>
     
                 <div className={classes.infoCardCategorie}>
-                  <p className={classes.nomProduitCardCategorie}>{produit.nomProduit}</p>
-                  <p className={classes.pStyleCateg}>{produit.prix}</p>
+                  <p className={classes.nomProduitCardCategorie}>{imageProduit.produit.nomProduit}</p>
+                  <p className={classes.pStyleCateg}>{imageProduit.produit.prix}</p>
                   <p className={classes.pStyleCateg}>Disponibilité</p>
                   <p>Notes du produit</p>
                  
-                  <Link to={`/product/${produit.id}`} className={classes.voirLeProduitStyleCateg}>
+                  <Link to={`/product/${imageProduit.produit.id}`} className={classes.voirLeProduitStyleCateg}>
                     Voir le produit
                   </Link>
                   <form action="" className={classes.ajouterAuPanierCateg}>
-                    <button onClick={()=>{ajoutPanier(produit)}}>Ajouter aux panier</button>
+                    <button onClick={()=>{ajoutPanier(imageProduit)}}>Ajouter aux panier</button>
                   </form>
                   <a href="" className={classes.voirPlusInfoStyleCateg}>
                     Voir plus d'info

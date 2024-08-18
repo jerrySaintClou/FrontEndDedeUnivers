@@ -1,9 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from "./NavBar3.module.css"
 import { Link } from 'react-router-dom';
 import logoImage from "../../../assets/logo.png";
+import axios from 'axios';
 
 export default function NavBar3(){
+
+    const [sousCategories, setSousCategorie] = useState([]);
+    
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:9195/api/sousCategorie/all"
+        );
+        setSousCategorie(response.data);
+        // console.log(response.data);
+      } catch (error) {
+        console.error("Erreur dans la récupération des sous catégorie:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
     const [buttonClicked,setButtonCliked] = useState("aucun bouton activé");
     const [activeButton,setActiveButton] = useState(false);
 
@@ -60,10 +80,10 @@ export default function NavBar3(){
     const produits = JSON.parse(localStorage.getItem("produits")) || [];
     const nombreDeProduits = produits.length;
     let prixTotal = 0;
-    console.log(nombreDeProduits)
+    // console.log(nombreDeProduits)
     for(let i = 0; i < nombreDeProduits; i++)
     {
-        prixTotal += produits[i].prix
+        prixTotal += produits[i].produit.prix
     }
     return(
         <>
@@ -298,7 +318,16 @@ export default function NavBar3(){
                  
         </div>
         <div className={classes.navBarCategorie}>
-            <Link to="/categoryProduct/1" className={classes.boutonNav1Style}>
+            {sousCategories.map((sousCategorie)=>{
+                return(
+                    <div key={sousCategorie.id} className={classes.sousNavBarCategorieDiv}>
+                    <Link to={`/categoryProduct/${sousCategorie.id}`} className={classes.boutonNavBarCategorie}>
+                        {sousCategorie.nomSousCategorie}
+                    </Link>
+                    </div>
+                )
+            })}
+            {/* <Link to="/categoryProduct/1" className={classes.boutonNav1Style}>
                 Categorie1
             </Link>
             <Link to="/categoryProduct/2" className={classes.boutonNav1Style}>
@@ -310,7 +339,7 @@ export default function NavBar3(){
             <Link to="/categoryProduct/4" className={classes.boutonNav1Style}>
                 Categorie4
             </Link>
-            
+             */}
             <Link to="/categoryProduct/1" className={classes.boutonNav1Style}>
                 tout les categories
             </Link>
