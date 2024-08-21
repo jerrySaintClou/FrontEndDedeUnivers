@@ -12,31 +12,32 @@ import ProfilAdmin from "./Pages/ProfilAdmin";
 import AddProduitContextProvider from "./Context/ProduitContext/AddProduitContext/AddProduitContext";
 import ModifProductForm from "./forms/ProductForm/ModifProductForm/ModifProductForm";
 import NavBar3 from "./Elements/NavBar3/NavBar3";
+import Activation from "./Pages/Activation";
 
 export default function Router() {
-  return(
+  return (
     <AddProduitContextProvider>
       <BrowserRouter>
-      {/* <Navbar /> */}
-      <NavBar3 />
-      {/* <Cookie /> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/product/:idProduit" element={<Product />} />
-        {/* <Route path="/categoryProduct" element={<CategoryProduct />} /> */}
-        <Route path="/categoryProduct/:idCategorie" element={<CategoryProduct />} />
-        <Route path="/shoppingCart" element={<ShoppingCart />} />
-        <Route path="/profilAdmin" element={<ProfilAdmin />} />
-        
-      </Routes>
-      <Footer/>
-      
-    </BrowserRouter>
+        {/* <Navbar /> */}
+        <NavBar3 />
+        {/* <Cookie /> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/product/:idProduit" element={<Product />} />
+          {/* <Route path="/categoryProduct" element={<CategoryProduct />} /> */}
+          <Route
+            path="/categoryProduct/:idCategorie"
+            element={<CategoryProduct />}
+          />
+          <Route path="/shoppingCart" element={<ShoppingCart />} />
+          <Route path="/profilAdmin" element={<ProfilAdmin />} />
+          <Route path="/activation" element={<Activation />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </AddProduitContextProvider>
-
-  )
-
+  );
 }

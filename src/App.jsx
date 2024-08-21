@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import Router from "./Components/Router";
 import { DataProvider } from "./Components/Context/DataContext/DataContext";
+import { TokenProvider } from "./Components/Context/TokenContext/TokenContext";
 // import './App.css'
 
 function App() {
@@ -10,9 +11,11 @@ function App() {
 
   return (
     <>
-    <DataProvider>
-      <Router />
-    </DataProvider>
+      <TokenProvider>
+        <DataProvider>
+          <Router />
+        </DataProvider>
+      </TokenProvider>
     </>
   );
 }
