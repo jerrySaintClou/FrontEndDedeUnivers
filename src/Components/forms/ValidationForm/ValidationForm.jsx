@@ -3,9 +3,10 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ValidationForm() {
+  const navigate = useNavigate();
   const registerSchema = z.object({
     code: z.string(),
   });
@@ -26,6 +27,7 @@ export default function ValidationForm() {
         data
       );
       console.log(response.data);
+      navigate("/login");
     } catch (error) {
       console.error("Erreur lors de la connexion:", error);
     }

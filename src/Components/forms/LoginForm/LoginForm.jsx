@@ -3,7 +3,6 @@ import classes from "./LoginForm.module.css";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useContext } from "react";
 import { useToken } from "../../Context/TokenContext/TokenContext";
 import axios from "axios";
 // import TokenContext, {
@@ -19,7 +18,7 @@ export default function LoginForm() {
   // const { setToken, setRefreshToken } = useToken();
   // const { accessToken, refreshToken } = useContext(TokenContext);
 
-  const { setToken, setRefreshToken, token, refreshToken } = useToken();
+  // const { setToken, setRefreshToken, token, refreshToken } = useToken();
 
   const loginSchema = z.object({
     username: z.string().email({ message: "Email incorrecte!" }),
@@ -50,10 +49,15 @@ export default function LoginForm() {
         data
       );
       console.log(response.data);
-      setToken(response.data.BEARER);
-      setRefreshToken(response.data.REFRESH);
-      console.log("Token reçu:", token);
-      console.log("refresh token reçu:", refreshToken);
+      // setToken(response.data.BEARER);
+      // setRefreshToken(response.data.REFRESH);
+      // console.log("Token reçu:", token);
+      // console.log("refresh token reçu:", refreshToken);
+      const token = response.data.bearer;
+      const refresh = response.data.refresh;
+      localStorage.setItem("token", token);
+      localStorage.setItem("refresh", refresh);
+      console.log("Token stored in local storage:", token);
       // Stocker le token dans le localStorage ou le state
       // localStorage.setItem("token", token);
       // localStorage.setItem("refresh-token", refreshToken);
